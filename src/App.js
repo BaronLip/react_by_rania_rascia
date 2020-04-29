@@ -4,11 +4,9 @@ import React, { Component } from 'react'
 import Table from './Table'
 
 class App extends Component {
-	render() {
-		// Always place the code blocks between the render and return methods.
-		let heading = <h1 className="site-heading">Baron's app.</h1>
-		
-		const characterData = [
+	// 'state' is property of the App component, not a variable declaration.
+	state = {
+		characterData: [
 			{
 				name: 'Charlie',
 				job: 'Janitor',
@@ -24,9 +22,24 @@ class App extends Component {
 			{
 				name: 'Dennis',
 				job: 'Bartender',
-			},
+			}
 		]
+	}
 
+	removeCharacter = (index) => {
+		const {characterData} = this.state;
+
+		this.setState({
+			characterData: characterData.filter((character, i) => {
+				return i !== index;
+			})
+		})
+	}
+
+	render() {
+		// Always place variable declarations between the render and return methods.
+		let heading = <h1 className="site-heading">Baron's app.</h1>
+		
 		return (
 			<div className="App">
 				{/* Use {} to interpolate JavaScript within JSX */}
@@ -34,7 +47,9 @@ class App extends Component {
 				
 				{/* Imported components use < /> tags to call them. */}
 				{/* Pass props just like you would HTML attributes. */}
-				<Table characterData={characterData} />
+				<Table characterData={this.state.characterData} 
+					removeCharacter={this.removeCharacter}
+				/>
 
 			</div>
 		)

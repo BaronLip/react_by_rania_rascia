@@ -16,8 +16,9 @@ const TableHeader = () => (
 // In order for a functional component to receive props, 
 // they are passed in as a parameter.
 const TableBody = (props) => {
+	console.log(props)
 	// When doing an explicit return of JSX, make sure to wrap the content in parenthesis, unless all the code may be contained in one line.
-
+	
 	// Creating a row for every character in the character array.
 	let rows = props.characterData.map((person, index) => {
 		console.log(person, index)
@@ -25,6 +26,11 @@ const TableBody = (props) => {
 		<tr key={index}>
 			<td>{person.name}</td>
 			<td>{person.job}</td>
+			<td>
+				<button onClick={ () => props.removeCharacter(index)}>
+					Delete
+				</button>
+			</td>
 		</tr>
 		)
 	})
@@ -38,18 +44,23 @@ const TableBody = (props) => {
 
 class Table extends Component {
 	render() {
-		// To extract the props that were passed to this component, 
+		// When referring to props within a class component, use 'this.props'.
+		// console.log(this.props)
+
+		// Extract the props that were passed to this component, 
 		// use this.props.thePropName or ES6 destructuring.
 		// ES6:
-		const { characterData } = this.props
+		const { characterData, removeCharacter } = this.props
 		// Standard JS:
 		// const characters = this.props.characterData
-
 
 		return(
 			<table>
 				<TableHeader />
-				<TableBody characterData={characterData} />
+				<TableBody 
+					characterData={characterData}
+					removeCharacter={removeCharacter}
+				/>
 			</table>
 		)
 	}
