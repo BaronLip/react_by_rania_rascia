@@ -4,6 +4,11 @@ import React, { Component } from 'react'
 import Table from './Table'
 import Form from "./Form";
 
+// The most tricky part of this setup is how handleSubmit() is a function within the App component. It is then passed as a prop to the Form component. The Form component then invokes it with the form's local state.
+// App.js => Form.js => App.js.
+// I really feel the handleSubmit should remain in the Form component.
+// The same would go for removeCharacter as that is a Table functionality.
+
 class App extends Component {
 	// 'state' is property of the App component, not a variable declaration.
 	state = {

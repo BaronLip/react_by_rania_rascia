@@ -1,3 +1,13 @@
+This app is a codealong based on this post:
+https://www.taniarascia.com/getting-started-with-react/.
+
+### How to start it up:
+1. Download the repo.
+2. Via Terminal, navigate to the directory.
+3. $ npm start
+
+### The templated content from $ create-react-app below.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
