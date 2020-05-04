@@ -19,7 +19,7 @@ class Form extends Component {
 
 	submitForm = () => {
 		console.log(this) // `this` refers to this Form class and all it's properties.
-		this.props.handleSubmit(this.state); // this.state refers to the form data.
+		this.props.handleSubmit(this.state); // this.state refers to the form data. 
 		this.setState(this.initialState); // this erases the values in the form field.
 	}
 

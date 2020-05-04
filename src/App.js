@@ -8,6 +8,7 @@ import Form from "./Form";
 // App.js => Form.js => App.js.
 // I really feel the handleSubmit should remain in the Form component.
 // The same would go for removeCharacter as that is a Table functionality.
+// FOLLOW-UP: This pattern does make sense. Possibly due to focus on Redux, I've forgotten how React, without Redux, should work. 
 
 class App extends Component {
 	// 'state' is property of the App component, not a variable declaration.
